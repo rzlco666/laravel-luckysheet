@@ -37,10 +37,10 @@ function myFunction() {
         var autoSave;
         //配置项
         var options = {
-            lang: 'zh',
+            lang: 'en',
             container: 'luckysheet',
             allowUpdate: true,
-            loadUrl:"https://"+ location.host +"/get?id=" + <?php echo $id ?>,
+            loadUrl:"http://"+ location.host +"/get?id=" + <?php echo $id ?>,
             hook:{
                 updated:function(e){
                     //监听更新,并在3s后自动保存
@@ -51,7 +51,7 @@ function myFunction() {
                         //去除临时数据,减小体积
                         for(var i in excel) excel[i].data = undefined
                         $.post(
-                            "https://"+ location.host +"/set?id=<?php echo $id ?>",
+                            "http://"+ location.host +"/set?id=<?php echo $id ?>",
                             {hash:JSON.stringify(excel)},
                             function(){
                                 $(luckysheet_info_detail_save).text("已保存")

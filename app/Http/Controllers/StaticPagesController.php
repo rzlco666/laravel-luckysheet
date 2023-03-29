@@ -11,6 +11,8 @@ class StaticPagesController extends Controller
     public function home(Request $action) {
         if (array_key_exists('id', $action->all())) {
             return view('home/office', ['id' => $action->all()['id']]);
+        }else{
+            return view('home/office', ['id' => 1]);
         }
     }
 
